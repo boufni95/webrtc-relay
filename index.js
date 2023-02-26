@@ -1,8 +1,9 @@
 const express = require('express')
+const http = require('http')
 const WebSocket = require('ws')
-
-const wss = new WebSocket.WebSocketServer({ port: 8080 });
-const conns = []
+const app = express()
+const server = http.createServer(app);
+const wss = new WebSocket.Server({ server });
 wss.on('connection', function connection(conn) {
     conn.on('error', console.error);
 
@@ -15,12 +16,8 @@ wss.on('connection', function connection(conn) {
     });
 });
 
-
-const app = express()
-const port = 3005
-
 app.use(express.static('public'))
-
-app.listen(port, () => {
+const port = 8765
+server.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 })
