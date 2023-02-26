@@ -17,7 +17,7 @@ wss.on('connection', function connection(conn) {
 });
 
 app.use(express.static('public'))
-const port = 8765
+const port = 3000
 server.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 })
