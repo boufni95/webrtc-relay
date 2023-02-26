@@ -17,7 +17,7 @@ wss.on('connection', function connection(conn) {
 
 
 const app = express()
-const port = 3000
+const port = 3005
 
 app.use(express.static('public'))
 
